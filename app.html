@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>App de demostración · Astria Access</title>
+  <meta name="description" content="Demostración simulada de cómo sería la app para el residente y para el portero de Astria Access. Datos inventados.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#071B33">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="panel.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="panel-pagina">
+
+  <div class="demo-banda" role="note">
+    <strong>Demostración</strong> · Todo es simulado · No uses datos reales · Nada se guarda ni se envía: se borra al recargar
+  </div>
+
+  <header class="panel-cabecera">
+    <div class="contenedor panel-cabecera__interior">
+      <a class="marca" href="index.html" aria-label="Volver al sitio de Astria Access">
+        <img src="logo-aguila.png" alt="" class="marca__icono" width="44" height="36">
+        <span class="marca__texto">ASTRIA <small>ACCESS</small></span>
+      </a>
+      <span class="app-enlaces">
+        <a class="boton boton--borde boton--pequeno" href="panel.html">Panel del administrador</a>
+        <a class="boton boton--borde boton--pequeno" href="index.html">← Volver al sitio</a>
+      </span>
+    </div>
+  </header>
+
+  <main class="contenedor app-demo">
+
+    <section class="app-intro">
+      <p class="etiqueta">App de demostración</p>
+      <h1>Así sería para el residente y para el portero</h1>
+      <p>Son dos celulares de mentira que comparten la misma información. Lo que haces en uno aparece en el otro y en el registro de abajo. Pruébalo en este orden:</p>
+      <ol class="app-pasos">
+        <li>En el celular del <strong>residente</strong>, entra con cualquier número y cualquier código.</li>
+        <li>Toca <strong>Invitar</strong> y crea un código para un visitante.</li>
+        <li>En el celular del <strong>portero</strong>, valida ese código y mira el resultado.</li>
+        <li>Vuelve al residente, <strong>bloquea tu tarjeta</strong> y pruébala en portería.</li>
+        <li>Usa <strong>Adelantar el reloj</strong> para ver cómo vence un código.</li>
+      </ol>
+    </section>
+
+    <div class="app-tabs" role="group" aria-label="Elegir celular">
+      <button type="button" class="activo" data-ver="residente" aria-pressed="true">Residente</button>
+      <button type="button" data-ver="portero" aria-pressed="false">Portero</button>
+    </div>
+
+    <div class="telefonos" id="telefonos" data-ver="residente">
+      <section class="tel-col tel-col--residente" aria-labelledby="h-residente">
+        <h2 id="h-residente">Residente</h2>
+        <div class="tel"><div class="tel__pantalla" id="telResidente"></div></div>
+      </section>
+      <section class="tel-col tel-col--portero" aria-labelledby="h-portero">
+        <h2 id="h-portero">Portero</h2>
+        <div class="tel"><div class="tel__pantalla" id="telPortero"></div></div>
+      </section>
+    </div>
+
+    <div class="app-controles">
+      <button type="button" class="boton boton--borde boton--pequeno" id="adelantar">Adelantar el reloj 3 horas</button>
+      <button type="button" class="boton boton--borde boton--pequeno" id="reiniciar">Reiniciar la demostración</button>
+      <span class="app-reloj" id="relojTexto" role="status"></span>
+    </div>
+
+    <section class="app-registro" aria-labelledby="h-registro">
+      <h2 id="h-registro">Registro de eventos</h2>
+      <p class="vista__ayuda">Así lo vería el administrador en el <a href="panel.html">panel</a>.</p>
+      <ul class="lista-eventos" id="registro"></ul>
+    </section>
+
+    <p class="aviso aviso--demo">
+      <strong>Qué es real y qué no.</strong> Esta pantalla es una simulación hecha para explicar la idea.
+      Los códigos QR que ves son dibujos ilustrativos y no se pueden escanear. No hay cuentas, mensajes
+      de WhatsApp ni conexión con lectores. Recibir el código de entrada por correo o WhatsApp, validar en
+      el servidor y conectar el lector son partes por construir.
+    </p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

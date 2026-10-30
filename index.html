@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Astria Access</title>
+  <meta name="description" content="Astria Access: herramientas digitales para gestionar los accesos de conjuntos residenciales, con códigos QR, tarjetas de proximidad y registro de eventos.">
+  <meta name="theme-color" content="#071B33">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Astria Access">
+  <meta property="og:description" content="Herramientas digitales para gestionar los accesos de conjuntos residenciales: códigos QR, tarjetas de proximidad y registro de eventos.">
+  <meta property="og:locale" content="es_CO">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Tipografía Montserrat (la del kit de marca) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <!-- ============ ENCABEZADO Y MENÚ ============ -->
+  <header class="encabezado" id="encabezado">
+    <div class="contenedor encabezado__interior">
+      <a class="marca" href="#inicio" aria-label="Astria Access, ir al inicio">
+        <img src="logo-aguila.png" alt="" class="marca__icono" width="44" height="36">
+        <span class="marca__texto">ASTRIA <small>ACCESS</small></span>
+      </a>
+
+      <button class="menu-boton" id="menuBoton" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="menu" id="menu" aria-label="Principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#solucion">Solución</a>
+        <a href="#funcionamiento">Cómo funciona</a>
+        <a href="#entornos">Entornos</a>
+        <a href="#productos">Productos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="panel.html">Panel demo</a>
+        <a href="#contacto" class="boton boton--pequeno">Solicitar información</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ============ A. INICIO ============ -->
+    <section class="hero" id="inicio">
+      <span class="estrella estrella--1" aria-hidden="true"></span>
+      <span class="estrella estrella--2" aria-hidden="true"></span>
+      <span class="estrella estrella--3" aria-hidden="true"></span>
+      <div class="contenedor hero__interior">
+
+        <div class="hero__texto">
+          <p class="etiqueta">Gestión de accesos residenciales</p>
+          <h1>El control de tus accesos, en un solo lugar</h1>
+          <p class="hero__descripcion">
+            Astria Access reúne en una sola plataforma las herramientas para administrar quién entra a un
+            conjunto residencial: autorizaciones digitales, códigos QR para visitantes y un registro claro
+            de cada ingreso.
+          </p>
+          <div class="hero__botones">
+            <a href="#solucion" class="boton">Conoce nuestra solución</a>
+            <a href="#contacto" class="boton boton--borde">Solicitar información</a>
+          </div>
+          <p class="eslogan">Protección sin límites, innovación sin fronteras</p>
+        </div>
+
+        <!-- Composición: lector en portería + panel de gestión (todo en SVG/HTML, sin imágenes externas) -->
+        <div class="hero__visual" aria-hidden="true">
+          <div class="escena">
+            <div class="panel">
+              <div class="panel__barra"><i></i><i></i><i></i><span>Panel de gestión</span></div>
+              <div class="panel__fila"><b>Torre 2 · Apto 401</b><em class="ok">Autorizado</em></div>
+              <div class="panel__fila"><b>Visitante · QR temporal</b><em class="ok">Válido 2 h</em></div>
+              <div class="panel__fila"><b>Tarjeta 0042</b><em class="ok">Residente</em></div>
+              <div class="panel__fila"><b>Código vencido</b><em class="no">Denegado</em></div>
+              <small class="panel__nota">Datos de ejemplo</small>
+            </div>
+
+            <div class="lector">
+              <img src="logo-aguila.png" alt="" class="lector__logo">
+              <svg class="qr" viewBox="0 0 21 21" shape-rendering="crispEdges">
+                <rect width="21" height="21" fill="#F0F5FC"/>
+                <g fill="#071B33">
+                  <path d="M1 1h7v7H1zM13 1h7v7h-7zM1 13h7v7H1z"/>
+                </g>
+                <g fill="#F0F5FC">
+                  <path d="M2 2h5v5H2zM14 2h5v5h-5zM2 14h5v5H2z"/>
+                </g>
+                <g fill="#071B33">
+                  <path d="M3 3h3v3H3zM15 3h3v3h-3zM3 15h3v3H3z"/>
+                  <path d="M10 1h2v2h-2zM9 4h2v2H9zM11 6h2v2h-2zM9 9h2v2H9zM12 10h2v2h-2zM14 9h2v2h-2zM17 10h2v2h-2zM10 13h2v2h-2zM13 13h2v2h-2zM16 13h3v2h-3zM11 16h2v2h-2zM14 16h2v3h-2zM18 17h2v2h-2zM9 18h2v2H9zM1 10h2v2H1zM4 9h2v2H4zM6 11h2v2H6z"/>
+                </g>
+              </svg>
+              <p class="lector__texto">Escanea tu código<br>para ingresar</p>
+              <span class="lector__led"></span>
+            </div>
+
+            <div class="tarjeta-rfid">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12a7 7 0 0 1 7-7M5 12a7 7 0 0 0 7 7"/><path d="M9 12a3 3 0 0 1 3-3M9 12a3 3 0 0 0 3 3"/><circle cx="14.5" cy="12" r="1" fill="currentColor"/></svg>
+              <span>Tarjeta de proximidad</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ B0. EL PROBLEMA ============ -->
+    <section class="seccion" id="problema">
+      <div class="contenedor">
+        <header class="seccion__cabecera">
+          <p class="etiqueta">El problema</p>
+          <h2>La portería sigue funcionando con papel, llamadas y buena memoria</h2>
+          <p>Son situaciones frecuentes en conjuntos y edificios. Astria Access nace para atenderlas; esto es lo que planteamos para cada una.</p>
+        </header>
+
+        <div class="rejilla">
+          <article class="tarjeta tarjeta--problema">
+            <h3>Libros y listas en papel</h3>
+            <p>Saber quién entró, y a qué hora, toma tiempo y a veces no queda ningún registro.</p>
+            <p class="tarjeta__respuesta"><strong>Lo que planteamos:</strong> un registro digital de cada ingreso, consultable desde el panel.</p>
+          </article>
+          <article class="tarjeta tarjeta--problema">
+            <h3>Una llamada por cada visita</h3>
+            <p>El portero llama al apartamento, espera respuesta y el visitante se queda en la puerta.</p>
+            <p class="tarjeta__respuesta"><strong>Lo que planteamos:</strong> que el residente genere un QR temporal y el visitante lo presente en el lector.</p>
+          </article>
+          <article class="tarjeta tarjeta--problema">
+            <h3>Tarjetas y llaves perdidas</h3>
+            <p>Una tarjeta extraviada puede seguir abriendo hasta que alguien se acuerde de cancelarla.</p>
+            <p class="tarjeta__respuesta"><strong>Lo que planteamos:</strong> bloquearla al instante desde el panel. En la <a href="panel.html">demostración</a> ya puedes ver cómo se vería.</p>
+          </article>
+          <article class="tarjeta tarjeta--problema">
+            <h3>Depender del internet</h3>
+            <p>Si la conexión se cae, nadie sabe quién puede entrar y quién no.</p>
+            <p class="tarjeta__respuesta"><strong>Lo que planteamos:</strong> que el lector guarde una copia de los permisos para seguir funcionando. Es un objetivo de diseño, todavía no está probado.</p>
+          </article>
+        </div>
+
+        <div class="cifras">
+          <p class="cifras__titulo">Lo que nos dijo nuestra encuesta piloto</p>
+          <ul class="cifras__lista">
+            <li><strong>5 de 10</strong><span>pidieron poder bloquear al instante una tarjeta perdida.</span></li>
+            <li><strong>4 de 10</strong><span>temen que una caída de internet deje sin servicio la portería.</span></li>
+          </ul>
+          <p class="cifras__nota">Encuesta piloto del equipo, con 10 respuestas. Es una referencia para orientar el diseño, no un estudio estadístico.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ B. NUESTRA SOLUCIÓN ============ -->
+    <section class="seccion" id="solucion">
+      <div class="contenedor">
+        <header class="seccion__cabecera">
+          <p class="etiqueta">Nuestra solución</p>
+          <h2>Un sistema pensado para la portería de hoy</h2>
+          <p>
+            Astria Access busca que la administración de un conjunto residencial deje de depender de
+            listas en papel y llamadas a cada apartamento. Estos son los componentes que puede incluir la solución.
+          </p>
+        </header>
+
+        <div class="rejilla">
+
+          <article class="tarjeta">
+            <div class="tarjeta__icono">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <h3>Gestión digital de autorizaciones</h3>
+            <p>Administración de permisos de acceso para residentes, visitantes y personal, con reglas claras sobre quién puede entrar y cuándo.</p>
+          </article>
+
+          <article class="tarjeta">
+            <div class="tarjeta__icono">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM19 14h2v2M14 19h2v2M18 18h3v3"/></svg>
+            </div>
+            <h3>Códigos QR para visitantes</h3>
+            <p>Posibilidad de generar autorizaciones temporales: el residente crea el código y el visitante lo presenta en el lector.</p>
+          </article>
+
+          <article class="tarjeta">
+            <div class="tarjeta__icono">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h4M7 14h2"/><path d="M15 10.5a2.5 2.5 0 0 1 0 3"/></svg>
+            </div>
+            <h3>Tarjetas o chips RFID/NFC</h3>
+            <p>Alternativa de identificación para residentes autorizados, según el hardware compatible con cada conjunto.</p>
+          </article>
+
+          <article class="tarjeta">
+            <div class="tarjeta__icono">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16l1.5-5h11L19 16"/><path d="M4 16h16v3H4z"/><circle cx="8" cy="17.5" r=".6" fill="currentColor"/><circle cx="16" cy="17.5" r=".6" fill="currentColor"/><path d="M3 8V4M21 8V4"/></svg>
+            </div>
+            <h3>Control de accesos vehiculares</h3>
+            <p>Posible gestión de permisos de ingreso a parqueaderos, con el mismo registro que el acceso peatonal.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ C. CÓMO FUNCIONA (4 etapas: el orden sí importa) ============ -->
+    <section class="seccion seccion--clara" id="funcionamiento">
+      <div class="contenedor">
+        <header class="seccion__cabecera">
+          <p class="etiqueta">Cómo funciona</p>
+          <h2>De la configuración al registro, en cuatro etapas</h2>
+        </header>
+
+        <ol class="pasos">
+          <li>
+            <span class="pasos__numero">1</span>
+            <h3>Se configura</h3>
+            <p>El administrador registra residentes, credenciales y permisos de la propiedad.</p>
+          </li>
+          <li>
+            <span class="pasos__numero">2</span>
+            <h3>Se habilita la autorización</h3>
+            <p>Se generan o habilitan las autorizaciones que correspondan a cada persona o vehículo.</p>
+          </li>
+          <li>
+            <span class="pasos__numero">3</span>
+            <h3>Se usa el método autorizado</h3>
+            <p>El residente o el visitante presenta su código QR o su tarjeta de proximidad.</p>
+          </li>
+          <li>
+            <span class="pasos__numero">4</span>
+            <h3>Se registra el evento</h3>
+            <p>El sistema guarda cada ingreso, siempre que la infraestructura necesaria esté implementada.</p>
+          </li>
+        </ol>
+
+        <div class="demos">
+          <h3 class="demos__titulo">Así se vería <span class="sello">Datos simulados</span></h3>
+          <div class="demos__par">
+
+            <figure class="demo">
+              <div class="demo__qr">
+                <svg class="qr" viewBox="0 0 21 21" shape-rendering="crispEdges" role="img" aria-label="Código QR ilustrativo">
+                <rect width="21" height="21" fill="#F0F5FC"/>
+                <g fill="#071B33"><path d="M1 1h7v7H1zM13 1h7v7h-7zM1 13h7v7H1z"/></g>
+                <g fill="#F0F5FC"><path d="M2 2h5v5H2zM14 2h5v5h-5zM2 14h5v5H2z"/></g>
+                <g fill="#071B33">
+                  <path d="M3 3h3v3H3zM15 3h3v3h-3zM3 15h3v3H3z"/>
+                  <path d="M10 1h2v2h-2zM9 4h2v2H9zM11 6h2v2h-2zM9 9h2v2H9zM12 10h2v2h-2zM14 9h2v2h-2zM17 10h2v2h-2zM10 13h2v2h-2zM13 13h2v2h-2zM16 13h3v2h-3zM11 16h2v2h-2zM14 16h2v3h-2zM18 17h2v2h-2zM9 18h2v2H9zM1 10h2v2H1zM4 9h2v2H4zM6 11h2v2H6z"/>
+                </g>
+              </svg>
+                <dl class="demo__datos">
+                  <dt>Autorización QR</dt><dd>Visitante de ejemplo</dd>
+                  <dt>Destino</dt><dd>Torre 1 · Apto 000</dd>
+                  <dt>Vigencia</dt><dd>2 horas desde su creación</dd>
+                </dl>
+              </div>
+              <figcaption>Código temporal que el residente crearía para una visita. Ilustrativo: no se puede escanear.</figcaption>
+            </figure>
+
+            <figure class="demo">
+              <div class="demo__tarjeta">
+                <div class="demo__tarjeta-fila">
+                  <img src="logo-aguila.png" alt="" width="42" height="34">
+                  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M5 12a7 7 0 0 1 7-7M5 12a7 7 0 0 0 7 7"/><path d="M9 12a3 3 0 0 1 3-3M9 12a3 3 0 0 0 3 3"/><circle cx="14.5" cy="12" r="1" fill="currentColor"/></svg>
+                </div>
+                <p class="demo__tarjeta-num">Credencial 0000</p>
+                <p class="demo__tarjeta-nom">Residente de ejemplo</p>
+              </div>
+              <figcaption>Tarjeta de proximidad asociada a un residente. Ilustrativa: el modelo depende del hardware compatible.</figcaption>
+            </figure>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ D. SOLUCIONES SEGÚN EL ENTORNO ============ -->
+    <section class="seccion" id="entornos">
+      <div class="contenedor">
+        <header class="seccion__cabecera">
+          <p class="etiqueta">Según el entorno</p>
+          <h2>Cada propiedad tiene sus propias necesidades</h2>
+          <p>Astria Access se adapta a las características de cada lugar. Antes de instalar cualquier componente se revisa la compatibilidad con la puerta, la reja o el equipo que ya existe.</p>
+        </header>
+
+        <div class="rejilla">
+          <article class="tarjeta">
+            <div class="tarjeta__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V8l8-5 8 5v12"/><path d="M9 20v-6h6v6"/></svg></div>
+            <h3>Conjuntos con portería</h3>
+            <p>El portero consulta las autorizaciones vigentes y verifica visitantes con apoyo del registro digital.</p>
+          </article>
+          <article class="tarjeta">
+            <div class="tarjeta__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M5 20V7M19 20V7M5 12h14M9 7v13M15 7v13"/></svg></div>
+            <h3>Puertas o rejas automatizadas</h3>
+            <p>La apertura puede integrarse con el motor o el control existente, si es compatible. Se verifica caso por caso.</p>
+          </article>
+          <article class="tarjeta">
+            <div class="tarjeta__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M12 8v6l-3 6M12 14l3 6M8 11l4-3 4 3"/></svg></div>
+            <h3>Accesos peatonales</h3>
+            <p>Lectores de QR o de tarjeta en el ingreso de personas, con registro de cada paso.</p>
+          </article>
+          <article class="tarjeta">
+            <div class="tarjeta__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16l1.5-5h11L19 16"/><path d="M4 16h16v3H4z"/></svg></div>
+            <h3>Accesos vehiculares y parqueaderos</h3>
+            <p>Permisos para vehículos de residentes y visitantes. Depende de las barreras y lectores de cada parqueadero.</p>
+          </article>
+        </div>
+
+        <p class="aviso">Ningún componente se instala sin antes comprobar que funciona con la infraestructura de la propiedad.</p>
+      </div>
+    </section>
+
+    <!-- ============ PRODUCTOS (catálogo en productos.js) ============ -->
+    <section class="seccion seccion--clara" id="productos">
+      <div class="contenedor">
+        <header class="seccion__cabecera">
+          <p class="etiqueta">Productos</p>
+          <h2>Equipos que Astria Access proyecta ofrecer</h2>
+          <p>Son equipos en desarrollo o en estudio. No hay precios publicados: agrega los que te interesen a tu lista y pide una cotización.</p>
+        </header>
+
+        <div class="filtros" id="filtrosProductos" role="group" aria-label="Filtrar productos por categoría"></div>
+        <div class="catalogo" id="catalogo" aria-live="polite"></div>
+        <p class="aviso aviso--demo">Las características de cada equipo se confirmarán al definir proveedores y pruebas. Lo que aquí aparece como «ideas en estudio» no es una promesa.</p>
+      </div>
+    </section>
+
+    <!-- Lista de cotización (botón flotante + panel lateral) -->
+    <button type="button" class="cotizacion-boton" id="cotBoton" aria-controls="cotPanel" aria-expanded="false" hidden>
+      Mi lista <span class="cotizacion-boton__n" id="cotN">0</span>
+    </button>
+    <aside class="cotizacion" id="cotPanel" aria-label="Lista de cotización" hidden>
+      <div class="cotizacion__cabeza">
+        <h2>Mi lista de cotización</h2>
+        <button type="button" class="cotizacion__cerrar" id="cotCerrar" aria-label="Cerrar lista">×</button>
+      </div>
+      <ul class="cotizacion__lista" id="cotLista"></ul>
+      <p class="cotizacion__vacia" id="cotVacia">Aún no has agregado productos.</p>
+      <div class="cotizacion__pie" id="cotPie">
+        <p class="cotizacion__nota">Esta lista no se envía sola. Copia el texto y envíalo por el correo de contacto.</p>
+        <button type="button" class="boton boton--pequeno" id="cotCopiar">Copiar solicitud</button>
+        <button type="button" class="boton boton--borde boton--pequeno" id="cotVaciar">Vaciar lista</button>
+        <p class="formulario__estado" id="cotEstado" role="status"></p>
+      </div>
+    </aside>
+
+    <!-- ============ E. PANEL PRIVADO (aquí solo se presenta; la demo vive en panel.html) ============ -->
+    <section class="seccion seccion--panel" id="panel">
+      <div class="contenedor panel-promo">
+        <div class="panel-promo__texto">
+          <p class="etiqueta">Panel para clientes</p>
+          <h2>Una vista pensada para el administrador</h2>
+          <p>El panel privado reuniría la gestión diaria de la propiedad. Hoy existe como demostración con datos simulados: no hay inicio de sesión ni base de datos conectada.</p>
+          <ul class="chips" aria-label="Módulos del panel">
+            <li>Resumen general</li>
+            <li>Residentes</li>
+            <li>Visitantes</li>
+            <li>Credenciales y permisos</li>
+            <li>Registro de eventos</li>
+            <li>Vehículos</li>
+            <li>Configuración</li>
+          </ul>
+          <a href="panel.html" class="boton">Ver panel de demostración</a>
+          <a href="app.html" class="boton boton--borde">Ver la app del residente y del portero</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ POR QUÉ ELEGIRNOS + COMPARACIÓN ============ -->
+    <section class="seccion seccion--clara" id="elegirnos">
+      <div class="contenedor">
+        <header class="seccion__cabecera">
+          <p class="etiqueta">Por qué Astria Access</p>
+          <h2>Lo que queremos hacer distinto</h2>
+          <p>No prometemos más de lo que hay. Cada punto dice si ya es real o si lo seguimos construyendo.</p>
+        </header>
+
+        <div class="rejilla rejilla--razones">
+          <article class="razon">
+            <span class="insignia insignia--ok">Hoy</span>
+            <h3>Cercanos y de la zona</h3>
+            <p>Somos un equipo de Madrid, Cundinamarca. Hablas directamente con las personas que hacen el proyecto.</p>
+          </article>
+          <article class="razon">
+            <span class="insignia insignia--ok">Hoy</span>
+            <h3>Claros desde el principio</h3>
+            <p>Te decimos qué incluye, qué no y qué está en desarrollo. Sin letra pequeña y sin promesas de seguridad absoluta.</p>
+          </article>
+          <article class="razon">
+            <span class="insignia">En desarrollo</span>
+            <h3>Un lector propio</h3>
+            <p>Un lector con QR y, como opción, tarjeta RFID/NFC, que buscamos de bajo costo, en vez de depender de una tablet.</p>
+          </article>
+          <article class="razon">
+            <span class="insignia">Objetivo</span>
+            <h3>Que siga funcionando sin internet</h3>
+            <p>Queremos que el lector guarde una copia de los permisos para validar aunque la red falle. Todavía por probar.</p>
+          </article>
+          <article class="razon">
+            <span class="insignia">En desarrollo</span>
+            <h3>Solo el administrador manda</h3>
+            <p>Activar lectores, crear credenciales y bloquearlas será una función solo del administrador. En el <a href="panel.html">panel demo</a> puedes ver cómo se vería.</p>
+          </article>
+          <article class="razon">
+            <span class="insignia">Objetivo</span>
+            <h3>Pensado para nuestra región</h3>
+            <p>Empezamos en Madrid y queremos llegar a otros municipios de Sabana de Occidente.</p>
+          </article>
+        </div>
+
+        <div class="compromiso">
+          <span class="insignia">Compromiso</span>
+          <h3>Tus datos son tuyos</h3>
+          <p>Si algún día tu conjunto decide irse, le entregamos su información completa (residentes, credenciales y registro de ingresos) en un archivo que pueda usar, sin trabas. El procedimiento exacto quedará por escrito en el contrato.</p>
+        </div>
+
+        <h3 class="comparativa__titulo">Tres formas de gestionar los accesos</h3>
+        <div class="comparativa" role="region" aria-label="Comparación de formas de gestionar los accesos" tabindex="0">
+          <table>
+            <caption class="solo-lectores">Comparación entre papel y llamadas, una plataforma de software con QR y Astria Access</caption>
+            <thead>
+              <tr>
+                <th scope="col">Criterio</th>
+                <th scope="col">Papel y llamadas</th>
+                <th scope="col">Plataforma de software con QR</th>
+                <th scope="col" class="es-astria">Astria Access <small>(en desarrollo)</small></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Registro de ingresos</th>
+                <td data-label="Papel y llamadas">En un libro, difícil de buscar.</td>
+                <td data-label="Plataforma de software con QR">Digital, con historial de entradas y salidas.</td>
+                <td data-label="Astria Access" class="es-astria">Digital, consultable en el panel.</td>
+              </tr>
+              <tr>
+                <th scope="row">Visitantes</th>
+                <td data-label="Papel y llamadas">El portero llama al apartamento.</td>
+                <td data-label="Plataforma de software con QR">QR temporal que crea el residente.</td>
+                <td data-label="Astria Access" class="es-astria">QR temporal que crea el residente, y tarjeta RFID/NFC como opción.</td>
+              </tr>
+              <tr>
+                <th scope="row">Equipo en la entrada</th>
+                <td data-label="Papel y llamadas">Libro y teléfono.</td>
+                <td data-label="Plataforma de software con QR">Normalmente una tablet o un celular con cámara.</td>
+                <td data-label="Astria Access" class="es-astria">Lector propio con QR y RFID/NFC.</td>
+              </tr>
+              <tr>
+                <th scope="row">Tarjeta o QR perdido</th>
+                <td data-label="Papel y llamadas">Hay que acordarse de cancelarla.</td>
+                <td data-label="Plataforma de software con QR">Se gestiona desde la plataforma.</td>
+                <td data-label="Astria Access" class="es-astria">Bloqueo desde el panel, como en la demostración.</td>
+              </tr>
+              <tr>
+                <th scope="row">Sin internet</th>
+                <td data-label="Papel y llamadas">Funciona, pero sin registro digital.</td>
+                <td data-label="Plataforma de software con QR">Suelen funcionar en la nube.</td>
+                <td data-label="Astria Access" class="es-astria">Objetivo: validar con una copia local de los permisos. Por probar.</td>
+              </tr>
+              <tr>
+                <th scope="row">Cómo se paga</th>
+                <td data-label="Papel y llamadas">Sin suscripción.</td>
+                <td data-label="Plataforma de software con QR">Suscripción mensual o anual, según el tamaño del conjunto.</td>
+                <td data-label="Astria Access" class="es-astria">Por definir: todavía no hay precios.</td>
+              </tr>
+              <tr>
+                <th scope="row">Estado</th>
+                <td data-label="Papel y llamadas">Es lo que se usa hoy en muchas porterías.</td>
+                <td data-label="Plataforma de software con QR">Hay varias opciones en Colombia.</td>
+                <td data-label="Astria Access" class="es-astria">Prototipo en construcción.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="comparativa__nota">La columna del medio resume varias plataformas colombianas a partir de su información pública, consultada en octubre de 2026, y puede haber cambiado. Astria Access todavía no está en el mercado.</p>
+      </div>
+    </section>
+
+    <!-- ============ F. SERVICIOS ============ -->
+    <section class="seccion" id="servicios">
+      <div class="contenedor">
+        <header class="seccion__cabecera">
+          <p class="etiqueta">Servicios</p>
+          <h2>Lo que Astria Access proyecta ofrecer</h2>
+          <p>El proyecto está en desarrollo. Estos servicios son una proyección y todavía no hay precios, contratos ni clientes.</p>
+        </header>
+
+        <div class="rejilla rejilla--servicios">
+          <article class="servicio"><span class="insignia">Proyectado</span><h3>Configuración de la plataforma</h3><p>Puesta en marcha del sistema con los datos de la propiedad.</p></article>
+          <article class="servicio"><span class="insignia">Proyectado</span><h3>Adaptación a la propiedad</h3><p>Ajuste de permisos, horarios y métodos de acceso a cada caso.</p></article>
+          <article class="servicio"><span class="insignia">Proyectado</span><h3>Integración de equipos compatibles</h3><p>Conexión con lectores y mecanismos que se verifiquen como compatibles.</p></article>
+          <article class="servicio"><span class="insignia">Proyectado</span><h3>Capacitación</h3><p>Formación para administradores, porteros y residentes.</p></article>
+          <article class="servicio"><span class="insignia">Proyectado</span><h3>Mantenimiento y soporte técnico</h3><p>Atención a dudas y revisión periódica del sistema.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COSTOS: QUÉ SE PAGA Y QUÉ NO ============ -->
+    <section class="seccion seccion--clara" id="costos">
+      <div class="contenedor">
+        <header class="seccion__cabecera">
+          <p class="etiqueta">Costos</p>
+          <h2>Qué se paga y qué no</h2>
+          <p>Todavía no publicamos precios, pero ya puedes ver de qué partes se compondría una propuesta y qué cosas no cuestan nada.</p>
+        </header>
+
+        <div class="alcance alcance--clara">
+          <div class="alcance__col alcance__col--si">
+            <h3>Lo que se cotiza</h3>
+            <ul>
+              <li><strong>La plataforma:</strong> según el tamaño del conjunto.</li>
+              <li><strong>El lector y las tarjetas:</strong> son equipos y se cotizan aparte, según cuántos accesos tenga el conjunto.</li>
+              <li><strong>La instalación y la configuración:</strong> dependen de la compatibilidad con las puertas y rejas que ya existen.</li>
+              <li><strong>Soporte y mantenimiento:</strong> servicio proyectado, que se define en la cotización.</li>
+            </ul>
+          </div>
+          <div class="alcance__col alcance__col--si">
+            <h3>Lo que no cuesta</h3>
+            <ul>
+              <li>Navegar el sitio y probar el panel y la app de demostración.</li>
+              <li>Pedir información y hablar con el equipo.</li>
+              <li>Llevarte tus datos si algún día decides irte.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="comparativa__nota">Cuando los precios estén definidos, los publicaremos aquí de forma clara. Mientras tanto, <a href="#contacto">pide información</a> y te explicamos qué necesitaría tu conjunto.</p>
+      </div>
+    </section>
+
+    <!-- ============ ALCANCE: QUÉ INCLUYE Y QUÉ NO ============ -->
+    <section class="seccion" id="alcance">
+      <div class="contenedor">
+        <header class="seccion__cabecera">
+          <p class="etiqueta">Alcance</p>
+          <h2>Qué incluye y qué no</h2>
+          <p>Preferimos decirlo claro desde el principio, para que sepas qué esperar.</p>
+        </header>
+
+        <div class="alcance">
+          <div class="alcance__col alcance__col--si">
+            <h3>Lo que planteamos incluir</h3>
+            <ul>
+              <li>Plataforma web para administrar residentes, visitantes y permisos.</li>
+              <li>Lector con códigos QR y, como opción adicional, tarjetas RFID/NFC.</li>
+              <li>Registro de eventos de acceso, consultable en el panel.</li>
+              <li>Configuración inicial, capacitación y soporte técnico.</li>
+              <li>Entrega de tu información si algún día decides irte.</li>
+            </ul>
+          </div>
+          <div class="alcance__col alcance__col--no">
+            <h3>Lo que no es ni promete</h3>
+            <ul>
+              <li>No es un servicio de vigilancia ni reemplaza al portero o al personal de seguridad.</li>
+              <li>No promete seguridad absoluta: ningún sistema puede garantizarla.</li>
+              <li>Todavía no hay precios, contratos, clientes ni certificaciones.</li>
+              <li>Las cámaras siguen en estudio.</li>
+              <li>Con puertas, rejas o barreras que ya existen: antes de instalar se revisa si son compatibles.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EL PROYECTO ============ -->
+    <section class="seccion" id="proyecto">
+      <div class="contenedor proyecto">
+        <div>
+          <p class="etiqueta">El proyecto</p>
+          <h2>Un proyecto productivo en desarrollo</h2>
+        </div>
+        <div class="proyecto__texto">
+          <p>
+            Astria Access nace en el marco de un proyecto productivo del SENA, Articulación con la Media,
+            en Madrid, Cundinamarca. Se está construyendo por fases: primero un prototipo funcional con
+            validación de códigos QR, señal luminosa, registro de eventos y un panel web de consulta.
+          </p>
+          <p>
+            Las tarjetas RFID/NFC se consideran como opción adicional, y las funciones más avanzadas
+            quedan como etapas futuras. Los datos que ves en este sitio son de ejemplo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ G. NOSOTROS ============ -->
+    <!-- Los textos marcados con class="editable" son espacios para que el equipo los complete. -->
+    <section class="seccion seccion--clara" id="nosotros">
+      <div class="contenedor">
+        <header class="seccion__cabecera">
+          <p class="etiqueta">Nosotros</p>
+          <h2>Una iniciativa tecnológica de Madrid, Cundinamarca</h2>
+          <p class="editable" data-editable="descripcion">Astria Access S.A.S. es un proyecto productivo del SENA, Articulación con la Media, de la Institución Educativa Tibaitata. Busca facilitar la gestión de accesos en conjuntos residenciales con herramientas digitales y, más adelante, ofrecer equipos de seguridad electrónica y videovigilancia.</p>
+        </header>
+
+        <div class="identidad">
+          <article class="identidad__bloque">
+            <h3>Misión</h3>
+            <p class="editable" data-editable="mision">Ofrecer soluciones tecnológicas de seguridad electrónica, videovigilancia y control de acceso que contribuyan a proteger personas, bienes e instalaciones. Brindamos productos y servicios adaptados a las necesidades de cada cliente, con innovación, atención responsable, instalación, mantenimiento y soporte técnico.</p>
+          </article>
+          <article class="identidad__bloque">
+            <h3>Visión</h3>
+            <p class="editable" data-editable="vision">Consolidarnos como una empresa reconocida en Colombia por nuestras soluciones de seguridad electrónica, videovigilancia y control de acceso, destacándonos por la innovación, la calidad del servicio y tecnologías adaptadas a las necesidades del mercado. Aspiramos a construir una marca confiable y competitiva, preparada para participar en mercados internacionales.</p>
+          </article>
+          <article class="identidad__bloque">
+            <h3>Valores</h3>
+            <ul class="valores editable" data-editable="valores">
+              <li>Responsabilidad</li><li>Innovación</li><li>Honestidad</li><li>Compromiso</li>
+              <li>Calidad</li><li>Confianza</li><li>Trabajo en equipo</li><li>Orientación al cliente</li>
+            </ul>
+          </article>
+        </div>
+
+        <h3 class="equipo__titulo">Equipo de trabajo</h3>
+        <ul class="equipo">
+          <li><span class="avatar" aria-hidden="true">SC</span><strong>Sergio Colorado</strong><span>Gerente General · Producción y Operaciones (programación y diseño)</span></li>
+          <li><span class="avatar" aria-hidden="true">EG</span><strong>Ethan Gonzalez</strong><span>Marketing y Ventas (publicidad del proyecto)</span></li>
+          <li><span class="avatar" aria-hidden="true">KC</span><strong>Kevin Casallas</strong><span>Atención al Cliente y PQRS</span></li>
+          <li><span class="avatar" aria-hidden="true">WH</span><strong>Wilson Hernández</strong><span>Contabilidad y Finanzas (recursos financieros)</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ PREGUNTAS FRECUENTES ============ -->
+    <section class="seccion" id="preguntas">
+      <div class="contenedor">
+        <header class="seccion__cabecera">
+          <p class="etiqueta">Preguntas frecuentes</p>
+          <h2>Lo que más nos preguntan</h2>
+          <p>Si tu duda no está aquí, escríbele a la guía (el botón de abajo a la derecha) o mándanos un mensaje.</p>
+        </header>
+
+        <div class="faq">
+          <details class="faq__item">
+            <summary>¿Qué es Astria Access?</summary>
+            <p>Un sistema para gestionar los accesos de conjuntos residenciales y otras propiedades: una plataforma web, un lector con QR (y opcionalmente tarjeta) y un registro de cada ingreso. Es un proyecto productivo del SENA que está en desarrollo.</p>
+          </details>
+          <details class="faq__item">
+            <summary>¿Cómo entra un visitante?</summary>
+            <p>El residente genera un código QR temporal y se lo envía al visitante. El visitante lo muestra en el lector, el sistema revisa si está vigente y la entrada queda registrada.</p>
+          </details>
+          <details class="faq__item">
+            <summary>¿Qué pasa si se cae el internet?</summary>
+            <p>Nuestro objetivo es que el lector guarde una copia de los permisos vigentes y siga funcionando mientras no haya conexión. Es un objetivo de diseño: todavía lo estamos probando y no lo damos por hecho.</p>
+          </details>
+          <details class="faq__item">
+            <summary>¿Y si se pierde una tarjeta?</summary>
+            <p>La idea es que el administrador la bloquee desde el panel y deje de funcionar de inmediato. En el <a href="panel.html">panel de demostración</a> puedes ver cómo se vería, con datos inventados.</p>
+          </details>
+          <details class="faq__item">
+            <summary>¿Quién puede activar un lector?</summary>
+            <p>Solo el administrador. Está previsto que cada lector se registre desde el panel con una cuenta de administrador, y que esa verificación la haga el servidor y no el navegador. Esto todavía está por construir.</p>
+          </details>
+          <details class="faq__item">
+            <summary>¿Funciona con mis puertas, rejas o barreras?</summary>
+            <p>Depende de cada propiedad. Antes de instalar algo se revisa si el equipo que ya tienes es compatible. Cuéntanos cómo es tu conjunto y lo miramos.</p>
+          </details>
+          <details class="faq__item">
+            <summary>¿Cuánto cuesta?</summary>
+            <p>Todavía no hay precios publicados. Puedes ver de qué se compondría una propuesta en <a href="#costos">Qué se paga y qué no</a>, y armar una lista de productos en <a href="#productos">Productos</a> para pedir información sin compromiso.</p>
+          </details>
+          <details class="faq__item">
+            <summary>¿Tienen cámaras?</summary>
+            <p>Están en estudio. En la sección de Productos aparecen como ideas, no como productos disponibles.</p>
+          </details>
+          <details class="faq__item">
+            <summary>¿Reemplaza al portero o garantiza la seguridad?</summary>
+            <p>No. Es una herramienta de apoyo para ordenar los accesos y dejar registro. Ningún sistema puede prometer seguridad absoluta.</p>
+          </details>
+          <details class="faq__item">
+            <summary>¿Qué hacen con mis datos?</summary>
+            <p>El formulario pide nombre, correo, tipo y tamaño de la propiedad, tu rol y un mensaje, solo para responderte. No usamos cookies de seguimiento ni publicidad. Lee el <a href="privacidad.html">aviso de privacidad</a> (todavía es un borrador).</p>
+          </details>
+          <details class="faq__item">
+            <summary>¿Y si más adelante decido irme?</summary>
+            <p>Te entregamos la información de tu conjunto (residentes, credenciales y registro de ingresos) en un archivo que puedas usar. Es un compromiso que queremos cumplir; el procedimiento exacto quedará escrito en el contrato.</p>
+          </details>
+          <details class="faq__item">
+            <summary>¿Ya tienen clientes?</summary>
+            <p>No. Estamos construyendo el prototipo, y todo lo que ves en el panel son datos de ejemplo.</p>
+          </details>
+          <details class="faq__item">
+            <summary>¿Cómo los contacto?</summary>
+            <p>Con el formulario de <a href="#contacto">Solicitar información</a> o escribiendo a <strong>gerenciaastriaaccess@gmail.com</strong>.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ H. CONTACTO ============ -->
+    <section class="seccion" id="contacto">
+      <div class="contenedor contacto">
+        <div>
+          <p class="etiqueta">Solicitar información</p>
+          <h2>Cuéntanos qué necesita tu propiedad</h2>
+          <p class="contacto__lead">Escríbenos y te explicamos cómo podría funcionar Astria Access en tu portería.</p>
+          <p class="contacto__correo">
+            Correo: <strong id="correoTexto">gerenciaastriaaccess@gmail.com</strong>
+          </p>
+          <p class="redes"><span class="redes__titulo">Síguenos</span>
+            <a class="red" href="https://www.instagram.com/astria.access/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram <small>@astria.access</small></span></a>
+            <a class="red" href="https://www.tiktok.com/@astria.access" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4v10.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.4 2.4 2 4 4.5 4.2"/></svg><span>TikTok <small>@astria.access</small></span></a></p>
+          <p class="aviso aviso--demo" id="avisoDemo"><strong>Formulario de demostración.</strong> Todavía no transmite los datos. Mientras tanto, escríbenos directamente al correo.</p>
+        </div>
+
+        <form class="formulario" id="formulario" novalidate>
+          <div class="trampa" aria-hidden="true"><label for="sitio">Sitio web (déjalo vacío)</label><input type="text" id="sitio" name="sitio" tabindex="-1" autocomplete="off"></div>
+          <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+            <span class="error" data-error-para="nombre"></span>
+          </div>
+          <div class="campo">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" autocomplete="email" required>
+            <span class="error" data-error-para="correo"></span>
+          </div>
+          <div class="campo">
+            <label for="tipo">Tipo de propiedad</label>
+            <select id="tipo" name="tipo">
+              <option>Conjunto residencial con portería</option>
+              <option>Conjunto con puertas o rejas automatizadas</option>
+              <option>Edificio u oficinas</option>
+              <option>Negocio o local</option>
+              <option>Parqueadero</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="unidades">Tamaño aproximado del conjunto</label>
+            <select id="unidades" name="unidades">
+              <option>Hasta 50 unidades</option>
+              <option>51 a 100 unidades</option>
+              <option>101 a 300 unidades</option>
+              <option>Más de 300 unidades</option>
+              <option>No lo sé todavía</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="rol">Tu rol</label>
+            <select id="rol" name="rol">
+              <option>Administrador/a</option>
+              <option>Consejo de administración</option>
+              <option>Residente o propietario</option>
+              <option>Portero o vigilancia</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+            <span class="error" data-error-para="mensaje"></span>
+          </div>
+          <div class="campo campo--check">
+            <label class="check" for="consentimiento">
+              <input type="checkbox" id="consentimiento" name="consentimiento" required>
+              <span>Autorizo el uso de mis datos solo para responder esta solicitud.</span>
+            </label>
+            <span class="error" data-error-para="consentimiento"></span>
+            <small class="privacidad">Lee el <a href="privacidad.html">aviso de privacidad</a> (borrador).</small>
+          </div>
+          <button type="submit" class="boton">Enviar solicitud</button>
+          <p class="formulario__estado" id="formularioEstado" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ I. PIE ============ -->
+  <footer class="pie">
+    <div class="contenedor pie__interior">
+      <div class="pie__marca">
+        <img src="logo-aguila.png" alt="" width="40" height="33">
+        <span>ASTRIA <small>ACCESS</small></span>
+      </div>
+      <p>Protección sin límites, innovación sin fronteras</p>
+      <nav class="pie__enlaces" aria-label="Pie de página">
+        <a href="#inicio">Inicio</a>
+        <a href="#solucion">Solución</a>
+        <a href="#funcionamiento">Cómo funciona</a>
+        <a href="#entornos">Entornos</a>
+        <a href="#productos">Productos</a>
+        <a href="#elegirnos">Por qué elegirnos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#costos">Qué se paga</a>
+        <a href="#alcance">Alcance</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#preguntas">Preguntas</a>
+        <a href="panel.html">Panel demo</a>
+        <a href="app.html">App demo</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <p class="redes redes--pie"><span class="redes__titulo">Síguenos</span>
+            <a class="red" href="https://www.instagram.com/astria.access/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram <small>@astria.access</small></span></a>
+            <a class="red" href="https://www.tiktok.com/@astria.access" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4v10.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.4 2.4 2 4 4.5 4.2"/></svg><span>TikTok <small>@astria.access</small></span></a></p>
+      <p class="pie__contacto">Contacto: gerenciaastriaaccess@gmail.com</p>
+      <p class="pie__legal"><a href="privacidad.html">Aviso de privacidad</a> · © <span id="anio"></span> Astria Access · Madrid, Cundinamarca · Proyecto productivo SENA</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="productos.js"></script>
+  <script src="guia.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel de demostración · Astria Access</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#071B33">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body class="panel-pagina">
+
+  <!-- Aviso permanente: esto es una demostración -->
+  <div class="demo-banda" role="note">
+    <strong>Demostración</strong> · Todos los datos son simulados · No hay inicio de sesión ni base de datos conectada · Lo que hagas aquí se borra al recargar
+  </div>
+
+  <header class="panel-cabecera">
+    <div class="contenedor panel-cabecera__interior">
+      <a class="marca" href="index.html" aria-label="Volver al sitio de Astria Access">
+        <img src="logo-aguila.png" alt="" class="marca__icono" width="44" height="36">
+        <span class="marca__texto">ASTRIA <small>ACCESS</small></span>
+      </a>
+      <a class="boton boton--borde boton--pequeno" href="index.html">← Volver al sitio</a>
+    </div>
+  </header>
+
+  <div class="contenedor panel-capa">
+
+    <nav class="panel-menu" id="panelMenu" aria-label="Módulos del panel">
+      <button type="button" data-vista="resumen" class="activo">Resumen</button>
+      <button type="button" data-vista="residentes">Residentes</button>
+      <button type="button" data-vista="visitantes">Visitantes</button>
+      <button type="button" data-vista="credenciales">Credenciales y permisos</button>
+      <button type="button" data-vista="eventos">Registro de eventos</button>
+      <button type="button" data-vista="vehiculos">Vehículos</button>
+      <button type="button" data-vista="configuracion">Configuración</button>
+    </nav>
+
+    <main class="panel-contenido" id="panelContenido" tabindex="-1">
+
+      <!-- RESUMEN -->
+      <section class="vista" id="vista-resumen" aria-labelledby="t-resumen">
+        <h1 id="t-resumen">Resumen general</h1>
+        <p class="vista__ayuda">Propiedad de ejemplo: «Conjunto Demo».</p>
+        <div class="metricas" id="metricas"></div>
+        <h2>Últimos eventos</h2>
+        <ul class="lista-eventos" id="resumenEventos"></ul>
+      </section>
+
+      <!-- RESIDENTES -->
+      <section class="vista" id="vista-residentes" aria-labelledby="t-residentes" hidden>
+        <h1 id="t-residentes">Gestión de residentes</h1>
+        <p class="vista__ayuda">Personas de ejemplo. Al agregar una, solo queda en esta pantalla.</p>
+        <form class="mini-form" id="formResidente" novalidate>
+          <div class="campo"><label for="resNombre">Nombre</label><input id="resNombre" type="text" maxlength="60"></div>
+          <div class="campo"><label for="resUnidad">Torre / apartamento</label><input id="resUnidad" type="text" maxlength="20" placeholder="Ej. T1-000"></div>
+          <button type="submit" class="boton boton--pequeno">Agregar residente</button>
+          <span class="error" id="errResidente" role="alert"></span>
+        </form>
+        <div class="tabla-caja"><table><thead><tr><th>Nombre</th><th>Unidad</th><th>Estado</th></tr></thead><tbody id="tbResidentes"></tbody></table></div>
+      </section>
+
+      <!-- VISITANTES -->
+      <section class="vista" id="vista-visitantes" aria-labelledby="t-visitantes" hidden>
+        <h1 id="t-visitantes">Autorizaciones para visitantes</h1>
+        <p class="vista__ayuda">Crea una autorización QR temporal. El código es ilustrativo y no se puede escanear.</p>
+        <form class="mini-form" id="formVisitante" novalidate>
+          <div class="campo"><label for="visNombre">Visitante</label><input id="visNombre" type="text" maxlength="60"></div>
+          <div class="campo"><label for="visUnidad">Destino</label><input id="visUnidad" type="text" maxlength="20" placeholder="Ej. T1-000"></div>
+          <div class="campo"><label for="visHoras">Vigencia</label>
+            <select id="visHoras"><option value="1">1 hora</option><option value="2" selected>2 horas</option><option value="6">6 horas</option><option value="24">24 horas</option></select>
+          </div>
+          <button type="submit" class="boton boton--pequeno">Generar autorización</button>
+          <span class="error" id="errVisitante" role="alert"></span>
+        </form>
+        <div class="tarjetas-qr" id="listaVisitantes"></div>
+      </section>
+
+      <!-- CREDENCIALES -->
+      <section class="vista" id="vista-credenciales" aria-labelledby="t-credenciales" hidden>
+        <h1 id="t-credenciales">Credenciales y permisos</h1>
+        <p class="vista__ayuda">Activa o quita permisos, o bloquea una credencial perdida. Es una simulación: no hay lector conectado.</p>
+        <div class="tabla-caja"><table><thead><tr><th>Credencial</th><th>Titular</th><th>Peatonal</th><th>Vehicular</th><th>Estado</th><th>Acción</th></tr></thead><tbody id="tbCredenciales"></tbody></table></div>
+      </section>
+
+      <!-- EVENTOS -->
+      <section class="vista" id="vista-eventos" aria-labelledby="t-eventos" hidden>
+        <h1 id="t-eventos">Registro de eventos</h1>
+        <p class="vista__ayuda">En un sistema real, esta lista depende de que lectores y registro estén instalados en la propiedad.</p>
+        <div class="campo campo--filtro"><label for="filtroEventos">Mostrar</label>
+          <select id="filtroEventos"><option value="todos">Todos</option><option value="Permitido">Permitidos</option><option value="Denegado">Denegados</option></select>
+        </div>
+        <div class="tabla-caja"><table><thead><tr><th>Hora</th><th>Persona o vehículo</th><th>Método</th><th>Resultado</th></tr></thead><tbody id="tbEventos"></tbody></table></div>
+      </section>
+
+      <!-- VEHÍCULOS -->
+      <section class="vista" id="vista-vehiculos" aria-labelledby="t-vehiculos" hidden>
+        <h1 id="t-vehiculos">Gestión de vehículos</h1>
+        <p class="vista__ayuda">Módulo opcional: solo aplica si la propiedad habilita accesos vehiculares.</p>
+        <div class="tabla-caja"><table><thead><tr><th>Placa (ejemplo)</th><th>Unidad</th><th>Tipo</th><th>Estado</th></tr></thead><tbody id="tbVehiculos"></tbody></table></div>
+      </section>
+
+      <!-- CONFIGURACIÓN -->
+      <section class="vista" id="vista-configuracion" aria-labelledby="t-configuracion" hidden>
+        <h1 id="t-configuracion">Configuración de la propiedad</h1>
+        <p class="vista__ayuda">Los cambios solo se mantienen mientras esta página siga abierta.</p>
+        <form class="config" id="formConfig" novalidate>
+          <div class="campo"><label for="cfgNombre">Nombre de la propiedad</label><input id="cfgNombre" type="text" maxlength="60" value="Conjunto Demo"></div>
+          <div class="campo"><label for="cfgTipo">Tipo de propiedad</label>
+            <select id="cfgTipo"><option>Conjunto residencial con portería</option><option>Conjunto con puertas o rejas automatizadas</option><option>Edificio u oficinas</option><option>Parqueadero</option></select>
+          </div>
+          <div class="campo"><label for="cfgHorario">Horario de visitas</label><input id="cfgHorario" type="text" maxlength="40" value="6:00 a. m. – 10:00 p. m."></div>
+          <label class="check" for="cfgVehiculos"><input type="checkbox" id="cfgVehiculos" checked><span>Habilitar módulo de vehículos</span></label>
+          <button type="submit" class="boton boton--pequeno">Guardar (solo en esta demostración)</button>
+          <p class="formulario__estado" id="estadoConfig" role="status"></p>
+        </form>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="panel.js"></script>
+</body>
+</html>

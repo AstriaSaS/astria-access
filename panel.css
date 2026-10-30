@@ -1,0 +1,88 @@
+/* ==========================================================
+   ASTRIA ACCESS · Estilos del panel de demostración
+   Usa las mismas variables de colores de styles.css
+   ========================================================== */
+
+.panel-pagina { background: var(--azul-noche); min-height: 100vh; }
+
+.demo-banda {
+  background: #fff4d6; color: #6b4a00; border-bottom: 2px solid #e0a800;
+  font-size: .8rem; text-align: center; padding: .55rem 1rem; line-height: 1.4;
+}
+
+.panel-cabecera { border-bottom: 1px solid var(--borde); background: rgba(7, 27, 51, .9); }
+.panel-cabecera__interior { display: flex; justify-content: space-between; align-items: center; min-height: 64px; gap: 1rem; }
+
+.panel-capa {
+  display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 2rem;
+  padding-block: 2rem 4rem;
+}
+
+/* Menú lateral */
+.panel-menu { display: flex; flex-direction: column; gap: .3rem; align-self: start; position: sticky; top: 1rem; }
+.panel-menu button {
+  font: inherit; font-size: .88rem; text-align: left; cursor: pointer;
+  color: var(--blanco-hielo); background: transparent;
+  border: 1px solid transparent; border-radius: 10px; padding: .7rem .9rem;
+  transition: background .2s, border-color .2s;
+}
+.panel-menu button:hover { background: rgba(8, 123, 255, .12); }
+.panel-menu button.activo { background: rgba(8, 123, 255, .22); border-color: rgba(39, 217, 242, .45); color: var(--cian); font-weight: 600; }
+
+/* Contenido */
+.panel-contenido { min-width: 0; }
+.panel-contenido:focus { outline: none; }
+.vista h1 { font-size: 1.6rem; margin-bottom: .3rem; }
+.vista h2 { font-size: 1.1rem; margin: 2rem 0 .8rem; }
+.vista__ayuda { color: var(--texto-suave); font-size: .9rem; margin-bottom: 1.4rem; }
+
+/* Métricas */
+.metricas { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; }
+.metrica { background: var(--azul-noche-2); border: 1px solid var(--borde); border-radius: var(--radio); padding: 1.1rem 1.2rem; }
+.metrica b { display: block; font-size: 1.9rem; font-weight: 700; color: var(--cian); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.metrica span { font-size: .78rem; color: var(--texto-suave); }
+
+.lista-eventos { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+.lista-eventos li {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  background: var(--azul-noche-2); border: 1px solid var(--borde); border-radius: 10px;
+  padding: .7rem 1rem; font-size: .88rem;
+}
+
+/* Formularios pequeños */
+.mini-form { display: flex; flex-wrap: wrap; gap: .9rem; align-items: flex-end; margin-bottom: 1.5rem; }
+.mini-form .campo { min-width: 0; flex: 1 1 160px; }
+.mini-form .campo label, .config .campo label, .campo--filtro label { color: var(--blanco-hielo); font-size: .8rem; font-weight: 600; }
+.mini-form .error { flex-basis: 100%; color: #ff9a9a; }
+.config { display: grid; gap: 1rem; max-width: 460px; }
+.config .check { color: var(--blanco-hielo); }
+.campo--filtro { max-width: 220px; margin-bottom: 1rem; }
+
+/* Tablas */
+.tabla-caja { overflow-x: auto; border: 1px solid var(--borde); border-radius: var(--radio); background: var(--azul-noche-2); }
+table { width: 100%; border-collapse: collapse; font-size: .88rem; min-width: 460px; }
+th, td { text-align: left; padding: .75rem 1rem; border-bottom: 1px solid rgba(255, 255, 255, .07); }
+th { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--cian); font-weight: 600; }
+tr:last-child td { border-bottom: 0; }
+
+.estado { display: inline-block; font-size: .72rem; padding: .15rem .65rem; border-radius: 999px; white-space: nowrap; }
+.estado--ok { background: rgba(39, 217, 242, .14); color: var(--cian); }
+.estado--no { background: rgba(255, 120, 120, .14); color: #ff9a9a; }
+
+.interruptor { width: 20px; height: 20px; accent-color: var(--azul-electrico); cursor: pointer; }
+
+/* Tarjetas de visitantes con QR ilustrativo */
+.tarjetas-qr { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
+.tarjeta-visita { display: flex; gap: 1rem; align-items: center; background: var(--azul-noche-2); border: 1px solid var(--borde); border-radius: var(--radio); padding: 1rem; min-width: 0; }
+.tarjeta-visita svg { width: 84px; height: 84px; flex: none; border-radius: 6px; background: var(--blanco-hielo); }
+.tarjeta-visita div { min-width: 0; font-size: .82rem; }
+.tarjeta-visita strong { display: block; font-size: .95rem; overflow-wrap: anywhere; }
+.tarjeta-visita code { color: var(--cian); font-size: .78rem; }
+.tarjeta-visita small { display: block; color: var(--texto-suave); margin-top: .3rem; }
+
+/* Celular: el menú pasa arriba y se desliza de lado */
+@media (max-width: 820px) {
+  .panel-capa { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; padding-block: 1.2rem 3rem; }
+  .panel-menu { flex-direction: row; overflow-x: auto; position: static; padding-bottom: .4rem; }
+  .panel-menu button { white-space: nowrap; border-color: var(--borde); }
+}
