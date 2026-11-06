@@ -64,9 +64,9 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
 // Para activarlo, crea tu cuenta en emailjs.com y pega aquí los tres datos
 // (los pasos están en el README.md). Son datos públicos por diseño; no son contraseñas.
 const EMAILJS = {
-  serviceId: '',    // ejemplo: 'service_abc123'
-  templateId: '',   // ejemplo: 'template_abc123'
-  publicKey: ''     // ejemplo: 'AbCdEfGh123456'
+  serviceId: 'service_yrwajbc',
+  templateId: 'template_3f0blgf',
+  publicKey: 'pvL7AYhgf5yw-ZlJF'
 };
 const EMAIL_ACTIVO = Boolean(EMAILJS.serviceId && EMAILJS.templateId && EMAILJS.publicKey);
 
